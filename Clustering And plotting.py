@@ -306,6 +306,25 @@ plt.title('Heatmap for the Data')
 plt.savefig("heatmap.png",bbox_inches="tight")
 plt.show()
 
+def matrixplot(df):
+    """Returns matrix plot"""
+    sm=pd.plotting.scatter_matrix(df,figsize=(11,11),diagonal='kde',alpha=0.2)
+    #Change label rotation
+    plt.figure(figsize = (10,8),dpi=144)
+    plt.tight_layout() # helps to avoid overlap of labels
+    [s.xaxis.label.set_rotation(45) for s in sm.reshape(-1)]
+    [s.yaxis.label.set_rotation(0) for s in sm.reshape(-1)]
+
+#May need to offset label when rotating to prevent overlap of figure
+    [s.get_yaxis().set_label_coords(-0.7,0.5) for s in sm.reshape(-1)]
+#Hide all ticks
+    [s.set_xticks(()) for s in sm.reshape(-1)]
+    [s.set_yticks(()) for s in sm.reshape(-1)]
+    plt.savefig("matrix.png",bbox_inches="tight")
+    plt.show()
+    return
+matrixplot(data)
+
 plt.figure(dpi=144) #to create a figure and dpi is for clarity of theline plot
 plt.plot(df_ind["year"], df_ind["india"], label= "india")
 plt.plot(year, forecast, label= "forecast")
