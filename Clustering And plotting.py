@@ -16,7 +16,7 @@ import sklearn.metrics as skmet
 import scipy.optimize as opt
 
 #importing the dataset
-data_countries= pd.read_csv('forest+LAND.csv')
+data_countries= pd.read_csv('forest.csv')
 print(data_countries)
 
 #reading continent dataset
