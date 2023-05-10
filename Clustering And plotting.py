@@ -20,7 +20,7 @@ data_countries= pd.read_csv('forest.csv')
 print(data_countries)
 
 #reading continent dataset
-data_con= pd.read_csv('countryContinent.csv',encoding= 'latin')
+data_con= pd.read_csv('Continent.csv',encoding= 'latin')
 data_con.sort_values(by= 'country', ascending= True, inplace= True)
 print(data_con)
 
